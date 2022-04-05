@@ -21,7 +21,7 @@
                         <input type="text" name="username" id="username" placeholder="Enter a username"
                             class="form-control w-50 " />
                     </header>
-                    <div id="messages"></div>
+                    <div id="messages" class="mt-5"></div>
                     <div style="position:fixed; bottom: 5px; width: 50%" class="">
                     <form id="message_form" >
                         <div class="input-group mb-3">

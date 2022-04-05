@@ -9,32 +9,32 @@ const message_input = document.getElementById("message_input");
 const message_form = document.getElementById("message_form");
 
 console.log(message_form);
-message_form.addEventListener('submit', function(e){
+message_form.addEventListener('submit', function (e) {
     e.preventDefault();
     let has_errors = false;
-    if(username_input.value == ''){
+    if (username_input.value == '') {
         alert("Please enter a username");
         has_errors = true;
     }
-    if(message_input.value == ''){
+    if (message_input.value == '') {
         alert("Please enter a message");
         has_errors = true;
     }
-    if(has_errors){
+    if (has_errors) {
         return;
     }
-    const options ={
-        method : 'post',
-        url : '/send-message',
+    const options = {
+        method: 'post',
+        url: '/send-message',
         data: {
-            username : username_input.value,
-            message : message_input.value
+            username: username_input.value,
+            message: message_input.value
         }
     }
-axios(options);
+    axios(options);
 });
 
 window.Echo.channel('chat-application').listen('.message', (e) => {
     console.log(e.username);
-messages_el.innerHTML += '<div class="message"><strong>' + e.username + ':</strong>' + e.message + '</div>';
+    messages_el.innerHTML += '<div class="message"><strong>' + e.username + ':</strong>' + e.message + '</div>';
 });
